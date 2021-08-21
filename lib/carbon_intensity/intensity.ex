@@ -13,10 +13,10 @@ defmodule CarbonIntensity.Intensity do
     field(:intensity, :integer)
   end
 
-  def add(params) do
+  def add(params, opts \\ []) do
     %Intensity{}
     |> changeset(params)
-    |> Repo.insert(on_conflict: :nothing)
+    |> Repo.insert(opts)
   end
 
   def changeset(%Intensity{} = struct, params \\ %{}) do
@@ -24,7 +24,7 @@ defmodule CarbonIntensity.Intensity do
     |> cast(params, @required)
     |> validate_required(@required)
     |> unique_constraint(
-      :title,
+      :datetime,
       name: :index_for_intensity_entries,
       message: "Datetime is already present."
     )
