@@ -5,3 +5,6 @@ config :c_i, CarbonIntensity.Repo,
   username: "postgres",
   password: "postgres",
   hostname: "localhost"
+
+config :c_i,
+  http_adapter: HTTPoison

@@ -22,7 +22,11 @@ defmodule CarbonIntensity.IntensityTest do
     Intensity.add(params1)
 
     {:error, changeset} = Intensity.add(params2)
-    expected_error = {"Datetime is already present.", [constraint: :unique, constraint_name: "index_for_intensity_entries"]}
+
+    expected_error =
+      {"Datetime is already present.",
+       [constraint: :unique, constraint_name: "index_for_intensity_entries"]}
+
     assert %Changeset{errors: [datetime: ^expected_error]} = changeset
   end
 

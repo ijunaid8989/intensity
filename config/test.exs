@@ -6,3 +6,6 @@ config :c_i, CarbonIntensity.Repo,
   password: "postgres",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :c_i,
+  http_adapter: CarbonIntensity.HTTP.Mock

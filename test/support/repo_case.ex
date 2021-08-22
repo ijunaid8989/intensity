@@ -9,7 +9,6 @@ defmodule CarbonIntensity.RepoCase do
       import Ecto
       import Ecto.Query
       import CarbonIntensity.RepoCase
-
     end
   end
 

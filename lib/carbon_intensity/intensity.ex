@@ -1,7 +1,6 @@
 defmodule CarbonIntensity.Intensity do
   use Ecto.Schema
 
-
   alias CarbonIntensity.{Intensity, Repo}
 
   import Ecto.Changeset
