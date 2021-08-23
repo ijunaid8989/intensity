@@ -19,10 +19,9 @@ defmodule CI.Maintainer do
     last_record_added =
       Intensity.get_last_record()
       |> last_added_records_date()
-      |> IO.inspect()
 
-    current_time = DateTime.utc_now() |> IO.inspect()
-    diff = DateTime.diff(current_time, last_record_added) |> IO.inspect()
+    current_time = DateTime.utc_now()
+    diff = DateTime.diff(current_time, last_record_added)
 
     datetimes =
       case diff > 1800 do
