@@ -4,6 +4,7 @@ defmodule CarbonIntensity.Intensity do
   alias CarbonIntensity.{Intensity, Repo}
 
   import Ecto.Changeset
+  import Ecto.Query
 
   @required [:datetime, :intensity]
 
@@ -16,6 +17,10 @@ defmodule CarbonIntensity.Intensity do
     %Intensity{}
     |> changeset(params)
     |> Repo.insert(opts)
+  end
+
+  def get_last_record() do
+    Intensity |> last(:id) |> Repo.one()
   end
 
   def changeset(%Intensity{} = struct, params \\ %{}) do

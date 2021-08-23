@@ -25,6 +25,7 @@ defmodule CI.Intensity.Worker do
     {:noreply, %{timer: timer}}
   end
 
+  @spec get_state(atom | pid | {atom, any} | {:via, atom, any}) :: any
   def get_state(pid) do
     GenServer.call(pid, :get)
   end
@@ -38,6 +39,7 @@ defmodule CI.Intensity.Worker do
   defp fetch_intensity_data(retry) do
     CI.get("/intensity")
     |> case do
+      {:error, :nxdomain} -> Logger.debug("todo")
       {:error, _error_code, _message} -> fetch_intensity_data(retry - 1)
       data -> Intensity.add(data) |> unique_datetime()
     end

@@ -9,6 +9,7 @@ defmodule CI.Application do
   def start(_type, _args) do
     children = [
       {CarbonIntensity.Repo, []},
+      {CI.Maintainer, []},
       {DynamicSupervisor, strategy: :one_for_one, name: CI.Intensity.Supervisor}
     ]
 
