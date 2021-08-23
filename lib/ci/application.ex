@@ -9,7 +9,7 @@ defmodule CI.Application do
   def start(_type, _args) do
     children = [
       {CarbonIntensity.Repo, []},
-      {CI.Intensity.Worker, []}
+      {DynamicSupervisor, strategy: :one_for_one, name: CI.Intensity.Supervisor}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
