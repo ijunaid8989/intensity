@@ -8,9 +8,8 @@ defmodule CI.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Starts a worker by calling: CI.Worker.start_link(arg)
-      # {CI.Worker, arg}
-      {CarbonIntensity.Repo, []}
+      {CarbonIntensity.Repo, []},
+      {CI.Intensity.Worker, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

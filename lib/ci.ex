@@ -44,7 +44,7 @@ defmodule CI do
   defp extract_data(%{"data" => [%{"from" => from, "intensity" => %{"actual" => actual}}]}),
     do: %{datetime: from, intensity: actual}
 
-  defp extract_data(response), do: response
+  defp extract_data(response), do: response |> extract_error()
 
   defp adapter(), do: Application.get_env(:c_i, :http_adapter)
 
