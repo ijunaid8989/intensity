@@ -9,3 +9,6 @@ config :c_i, CarbonIntensity.Repo,
 
 config :c_i,
   http_adapter: CarbonIntensity.HTTP.Mock
+
+config :c_i,
+  worker: false

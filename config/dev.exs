@@ -8,3 +8,6 @@ config :c_i, CarbonIntensity.Repo,
 
 config :c_i,
   http_adapter: HTTPoison
+
+config :c_i,
+  worker: true
